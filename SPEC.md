@@ -19,9 +19,9 @@ contacting).
 ## Stack
 
 - Python 3.12+
-- `httpx` (HTTP client with timeouts + retry/backoff), `selectolax` (HTML parsing
-  for the fallback source), `tenacity` (retry), `tzdata` (IANA zones on Windows /
-  slim runners), `python-dotenv`, stdlib `tomllib` for config.
+- `httpx` (HTTP client with timeouts + retry/backoff), `tenacity` (retry),
+  `tzdata` (IANA zones on Windows / slim runners), `python-dotenv`, stdlib
+  `tomllib` for config.
 - No web framework. The deliverable is a CLI script run by CI.
 - Runtime: GitHub Actions scheduled workflows on a **public** repository
   (unlimited free minutes; cron supported). State is committed back to the repo.
@@ -69,19 +69,20 @@ Listing URL: `https://www.myhome.ge/en/pr/{id}/`.
 Reference IDs (for display / optional future filtering):
 metro stations — State University 1, Vazha-Pshavela 2, Delisi 3,
 Medical University 4, Technical University 5. All sit inside `urban_id=47`.
+`user_type.type` seen values: `physical` (owner) vs `agent` / `agency` / `broker`
+(treated as agency).
 
-Fallback — server-rendered page JSON (used automatically when the API errors or
-returns empty):
+### No fallback source (decision, 2026-09-06)
 
-```
-GET https://www.myhome.ge/en/real-estate/?<same query params as above>
-```
-
-Parse `<script id="__NEXT_DATA__">`; listings at
-`props.pageProps.dehydratedState.queries[] where queryKey[0] == "statements"`,
-then `state.data.data.data` (array of the same objects). Alternative form of the
-same data: fetch the homepage, read `__NEXT_DATA__.buildId`, then
-`GET https://www.myhome.ge/_next/data/{buildId}/en/real-estate.json?<params>&slug=real-estate`.
+`www.myhome.ge` sits behind bot protection: a plain HTTP client gets **HTTP 403**
+for the search page HTML *and* for `/_next/data/…json`. Only
+`api-statements.tnet.ge` serves non-browser clients. A headless-browser fallback
+was considered and declined for this round (weight and fragility out of
+proportion to a rarely-triggered safety net). So the JSON API is the **sole**
+source. If it fails, the run sends one failure notice to the Telegram chat and
+exits non-zero (see pipeline). `sources/` keeps a single-function seam
+(`get_listings`) so a browser fallback can be added later as its own patch
+without touching callers.
 
 ### Constraints
 
@@ -105,7 +106,6 @@ same data: fetch the homepage, read `__NEXT_DATA__.buildId`, then
 - Dry run (prints digest, sends nothing): `python -m flats_georgia --dry-run`
 - Real run: `python -m flats_georgia`
 - Re-send everything currently in the filter: `python -m flats_georgia --force-full`
-- Force a source: `python -m flats_georgia --source html` (or `--source api`)
 - Always send even with nothing new: `python -m flats_georgia --always-send`
 - Tests: `pytest` (offline). Live smoke tests: `pytest -m live`
 - Lint: `ruff check src tests` and `ruff format --check src tests`
@@ -114,13 +114,13 @@ same data: fetch the homepage, read `__NEXT_DATA__.buildId`, then
 ## Testing
 
 - `pytest`, tests in `tests/`, offline by default using saved fixtures in
-  `tests/fixtures/` (`api_page1.json`, `api_page2.json`, `search_page.html`).
+  `tests/fixtures/` (`api_page1.json`, `api_page2.json`, `api_page_empty.json`).
 - Live tests that hit MyHome.ge or Telegram are marked `@pytest.mark.live` and
   skipped unless `pytest -m live` (and required env vars are present).
-- Must cover: API pagination + normalization, HTML fallback normalization,
-  API→HTML failover, dedup (first run, steady state, state merge), digest
-  formatting incl. Telegram 4096-char chunking, pipeline end-to-end with mocked
-  source + mocked Telegram.
+- Must cover: API pagination + normalization, dedup (first run, steady state,
+  state merge), digest formatting incl. Telegram 4096-char chunking, pipeline
+  end-to-end with mocked source + mocked Telegram, and the API-failure path
+  (one error message sent, non-zero exit).
 - CI runs `ruff`, `mypy`, `pytest` on every push and PR.
 
 ## Project structure
@@ -138,9 +138,8 @@ flats-georgia/
     config.py               # load config.toml + env, expose typed Settings
     models.py               # Listing dataclass + normalization helpers
     sources/
-      __init__.py           # get_listings(settings) with API->HTML failover
+      __init__.py           # SourceError + get_listings(settings) seam
       api.py                # tnet JSON API client + pagination
-      html_fallback.py      # __NEXT_DATA__ parser
     dedup.py                # SeenStore: load/filter_new/save (state/seen_ids.json)
     telegram.py             # format_listing, build_messages, send
     pipeline.py             # orchestration: fetch -> filter -> send -> persist
@@ -149,8 +148,6 @@ flats-georgia/
   tests/
     fixtures/
     test_api.py
-    test_html_fallback.py
-    test_sources_failover.py
     test_dedup.py
     test_telegram.py
     test_pipeline.py
@@ -247,8 +244,8 @@ Never:
 - Two runs back-to-back: the second sends nothing new. The 07:00 UTC slot (or a
   run with `--always-send`) still sends, saying "no new listings" when that is
   true.
-- With the API forced to fail (test injects a 500), the HTML fallback still
-  produces the same digest.
+- With the API forced to fail (test injects repeated 500s), the run sends exactly
+  one error message to the chat and exits non-zero.
 - Done-means: for one full week the owner receives the morning digest every day
   and intraday messages only when MyHome.ge actually has new matching listings,
   with no duplicates across messages.
