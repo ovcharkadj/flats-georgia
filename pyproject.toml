@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flats-georgia"
+version = "0.1.0"
+description = "Telegram digest of new MyHome.ge long-term rentals matching a fixed filter"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.27,<1.0",
+    "selectolax>=0.3.21",
+    "tenacity>=8.2",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-httpx>=0.30",
+    "ruff>=0.6",
+    "mypy>=1.11",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "PL", "RUF"]
+ignore = ["PLR2004"]
+
+[tool.mypy]
+python_version = "3.12"
+packages = ["flats_georgia"]
+mypy_path = "src"
+strict = true
+warn_unreachable = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "live: hits the real MyHome.ge / Telegram APIs (skipped unless selected)",
+]
+addopts = "-m 'not live'"
