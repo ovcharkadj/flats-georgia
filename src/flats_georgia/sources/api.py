@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import random
 import time
 from collections.abc import Callable
 from zoneinfo import ZoneInfo
@@ -98,7 +99,8 @@ def fetch_listings(
     try:
         for page in range(1, settings.behaviour.max_pages_per_run + 1):
             if page > 1:
-                sleep(settings.behaviour.request_delay_seconds)
+                jitter = random.uniform(0, settings.behaviour.request_jitter_seconds)
+                sleep(settings.behaviour.request_delay_seconds + jitter)
             try:
                 rows = _get_page(active, settings.source.api_url, params, headers, page)
             except _Retryable as exc:

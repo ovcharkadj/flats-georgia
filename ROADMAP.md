@@ -113,15 +113,17 @@ Boundary: no changes to `src/` logic.
 Depends on: Patch 5.
 
 ### Patch 7: Hardening and docs
-Scope: `keepalive.yml` (monthly cron making an empty commit with a `KEEPALIVE_PAT`
-secret so scheduled workflows stay enabled); ±0–1 s jitter added to
-`request_delay_seconds` in the API client; `README.md` completed with the full
-setup runbook (create bot via `@BotFather`, obtain chat id, add the secrets,
-enable Actions, the 60-day keepalive note, how to change the filter).
-Acceptance: jitter keeps total delay within `[delay, delay + jitter]` (tested);
-README lists every secret the workflows reference and the steps map to what a
-non-programmer can follow; `keepalive.yml` and `digest.yml` parse under
-`actionlint` in CI.
+Scope: `keepalive.yml` (monthly cron making a real commit via `KEEPALIVE_PAT`,
+falling back to the default token, so scheduled workflows stay enabled); ±0–jitter
+added to `request_delay_seconds` in the API client; `message_pause_seconds` gap
+between Telegram messages (first-run flood vs the ~20/min bulk limit); `README.md`
+completed with the full setup runbook (bot via `@BotFather`, chat id, secrets,
+enable Actions, the 60-day keepalive note, how to change the filter/schedule).
+Acceptance: jitter keeps each inter-page wait within `[delay, delay + jitter]`
+(tested); messages are paced by `message_pause_seconds` (tested); README lists
+every secret the workflows reference; `tests/test_workflows.py` parses all three
+workflows and asserts the cron slots, the always-send branch, and the `[skip ci]`
+state commit.
 Boundary: no new listing-processing features; filter and schedule unchanged.
 Depends on: Patch 6.
 

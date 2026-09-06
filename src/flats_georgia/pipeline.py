@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import logging
+import time
+from collections.abc import Callable
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -48,6 +50,7 @@ def run(
     force_full: bool = False,
     always_send: bool = False,
     now: datetime | None = None,
+    sleep: Callable[[float], None] = time.sleep,
 ) -> int:
     """Run one digest cycle. Returns a process exit code."""
     tz = ZoneInfo(settings.behaviour.timezone)
@@ -72,7 +75,9 @@ def run(
 
         messages = build_messages(selected, _header(len(selected), moment))
         try:
-            for message in messages:
+            for index, message in enumerate(messages):
+                if index:
+                    sleep(settings.behaviour.message_pause_seconds)
                 sender.send_message(message)
         except TelegramError as exc:
             log.error("send failed: %s", exc)

@@ -155,6 +155,20 @@ def test_send_failure_returns_nonzero(
     assert not settings.state_path.exists()
 
 
+def test_messages_are_paced(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, [make_listing(1000 + i) for i in range(120)])
+    pauses: list[float] = []
+
+    pipeline.run(settings, now=QUIET_HOUR, sleep=pauses.append)
+
+    assert len(sender.messages) > 1
+    assert len(pauses) == len(sender.messages) - 1
+    assert all(p == settings.behaviour.message_pause_seconds for p in pauses)
+
+
 @pytest.mark.live
 def test_live_dry_run_end_to_end() -> None:
     settings = load_settings(require_secrets=False)

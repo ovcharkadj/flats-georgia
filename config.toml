@@ -14,6 +14,7 @@ urbans = [47]         # "Saburtalo" urban area (covers metro stations 1-5)
 [behaviour]
 request_delay_seconds = 1.5
 request_jitter_seconds = 1.0
+message_pause_seconds = 3.0      # gap between Telegram messages (avoids the ~20/min bulk limit)
 max_pages_per_run = 10
 max_stored_ids = 20000
 timezone = "Asia/Tbilisi"

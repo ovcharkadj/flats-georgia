@@ -1,0 +1,32 @@
+name: Keepalive
+
+# GitHub disables scheduled workflows on a repo with 60 days of no commits, and
+# commits made by the built-in GITHUB_TOKEN do NOT reset that timer. This job
+# makes a real commit once a month using a personal access token so digest.yml
+# keeps running. If the KEEPALIVE_PAT secret is absent it still commits (via the
+# default token) but will not reset the timer - add the PAT to be safe.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "13 3 1 * *" # 03:13 UTC on the 1st of every month
+
+permissions:
+  contents: write
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.KEEPALIVE_PAT || github.token }}
+      - name: Commit a heartbeat
+        run: |
+          mkdir -p .github
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .github/last-keepalive.txt
+          git config user.name "flats-georgia-keepalive"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/last-keepalive.txt
+          git commit -m "chore: keepalive $(date -u +%F) [skip ci]" || exit 0
+          git push

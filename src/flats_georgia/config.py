@@ -45,6 +45,7 @@ class FilterConfig:
 class BehaviourConfig:
     request_delay_seconds: float
     request_jitter_seconds: float
+    message_pause_seconds: float
     max_pages_per_run: int
     max_stored_ids: int
     timezone: str
@@ -149,6 +150,7 @@ def load_settings(
     behaviour_config = BehaviourConfig(
         request_delay_seconds=beh.float_("request_delay_seconds"),
         request_jitter_seconds=beh.float_("request_jitter_seconds"),
+        message_pause_seconds=beh.float_("message_pause_seconds"),
         max_pages_per_run=beh.int_("max_pages_per_run"),
         max_stored_ids=beh.int_("max_stored_ids"),
         timezone=beh.str_("timezone"),

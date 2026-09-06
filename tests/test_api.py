@@ -116,6 +116,21 @@ def test_transient_5xx_is_retried_then_succeeds(
     assert len(httpx_mock.get_requests()) == 3
 
 
+def test_request_delay_includes_jitter_within_bounds(
+    settings: Settings, httpx_mock: HTTPXMock
+) -> None:
+    # a reusable full page never returns empty, so all pages run and sleep between them
+    httpx_mock.add_response(json=load_fixture_json("api_page1.json"), is_reusable=True)
+    waits: list[float] = []
+
+    api_source.fetch_listings(settings, sleep=waits.append)
+
+    assert waits
+    low = settings.behaviour.request_delay_seconds
+    high = low + settings.behaviour.request_jitter_seconds
+    assert all(low <= wait <= high for wait in waits)
+
+
 @pytest.mark.live
 def test_live_api_returns_in_band_listings() -> None:
     settings = load_settings(require_secrets=False)

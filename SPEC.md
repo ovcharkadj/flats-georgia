@@ -92,8 +92,16 @@ without touching callers.
   activity, and commits made by the built-in `GITHUB_TOKEN` do **not** reset that
   timer. Mitigation: a monthly keepalive job that commits with a user PAT, or the
   owner pushes any commit at least every ~50 days. Documented in README.
-- Polite scraping caps (config, enforced in code): ≥1.5 s between HTTP requests,
-  ≤10 pages per run, ≤6 runs per hour.
+- Polite scraping caps (config, enforced in code): ≥1.5 s (+0–1 s jitter) between
+  page requests, ≤10 pages per run. The Saburtalo/$300–500 pool is >200, so a run
+  fetches all 10 pages every time (the list endpoint gives no total to stop
+  early); after the first run `filter_new` leaves only a handful.
+- Telegram messages are paced `message_pause_seconds` (3 s) apart so a big
+  first-run digest does not trip the ~20 messages/minute bulk limit; the sender
+  also retries 429/5xx with backoff.
+- `always_send_hours_local = [11]`: a run whose local hour is in this list (or
+  `--always-send`) sends even with nothing new; other runs stay silent when
+  there is nothing.
 - Secrets never enter the repo: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` live only
   in GitHub Actions secrets / local `.env`.
 
