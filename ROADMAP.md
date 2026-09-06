@@ -15,7 +15,17 @@ web pages return HTTP 403 to non-browser clients, so the JSON API is the sole
 source (see SPEC "No fallback source"). The API-failure notification, previously
 folded into Patch 8, is now part of the pipeline (Patch 5). Patches renumbered.
 
-Status: Patches 1–2 done and pushed. Patches 3–7 below.
+Status: Patches 1–7 done, pushed, and running on GitHub Actions (Digest delivers
+to Telegram). Patch 8 below was added after the first live run.
+
+### Patch 8: Order the digest by price (most expensive first)
+Scope: `pipeline._by_price_desc` sorts the selected listings by `price_usd`
+descending before formatting; listings with no USD price sort last. Applied on
+both the normal and `--force-full` paths.
+Acceptance: `test_digest_is_ordered_most_expensive_first` — a mix of prices and a
+priceless listing come out 500 → 420 → 350 → (no price) in the message body.
+Boundary: filter, schedule, and delivery unchanged; ordering only.
+Depends on: Patch 5.
 
 ## Patches
 

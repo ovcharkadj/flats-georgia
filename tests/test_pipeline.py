@@ -155,6 +155,27 @@ def test_send_failure_returns_nonzero(
     assert not settings.state_path.exists()
 
 
+def test_digest_is_ordered_most_expensive_first(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(
+        monkeypatch,
+        [
+            make_listing(1, price_usd=350),
+            make_listing(2, price_usd=500),
+            make_listing(3, price_usd=None),
+            make_listing(4, price_usd=420),
+        ],
+    )
+
+    pipeline.run(settings, now=QUIET_HOUR)
+
+    body = "\n".join(sender.messages)
+    positions = [body.index(f"/{i}/") for i in (2, 4, 1, 3)]
+    assert positions == sorted(positions)  # 500, 420, 350, then no-price
+
+
 def test_messages_are_paced(
     env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
 ) -> None:

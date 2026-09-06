@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 from flats_georgia.config import Settings
 from flats_georgia.dedup import SeenStore
+from flats_georgia.models import Listing
 from flats_georgia.sources import SourceError, get_listings
 from flats_georgia.telegram import (
     DryRunSender,
@@ -26,6 +27,15 @@ EXIT_SOURCE_FAILED = 2
 EXIT_SEND_FAILED = 3
 
 _AREA_LABEL = "Сабуртало"  # single fixed filter this round
+
+
+def _by_price_desc(listings: list[Listing]) -> list[Listing]:
+    """Most expensive first; listings without a USD price go last."""
+    return sorted(
+        listings,
+        key=lambda listing: listing.price_usd if listing.price_usd is not None else -1,
+        reverse=True,
+    )
 
 
 def _header(new_count: int, when: datetime) -> str:
@@ -66,7 +76,7 @@ def run(
 
         log.info("fetched %d listing(s)", len(listings))
         store = SeenStore.load(settings.state_path, max_stored=settings.behaviour.max_stored_ids)
-        selected = listings if force_full else store.filter_new(listings)
+        selected = _by_price_desc(listings if force_full else store.filter_new(listings))
         must_send = always_send or (moment.hour in settings.behaviour.always_send_hours_local)
 
         if not selected and not must_send:

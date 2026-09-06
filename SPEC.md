@@ -7,7 +7,8 @@ MyHome.ge that match one fixed filter (Saburtalo district, Tbilisi, USD 300–50
 per month). The digest runs on a schedule: one guaranteed message every morning
 plus several intraday checks that only message when something new appeared. Each
 listing is shown as a clickable link plus a one-line summary (price, area, rooms,
-floor, area name, posting time, owner/agency).
+floor, area name, posting time, owner/agency). The digest is ordered by USD price,
+most expensive first (listings with no USD price go last).
 
 Consumer: the project owner only (a single private Telegram chat).
 
