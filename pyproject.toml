@@ -31,7 +31,8 @@ src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "PL", "RUF"]
-ignore = ["PLR2004"]
+# RUF001-003: Cyrillic "confusables" - this project ships Russian user-facing text.
+ignore = ["PLR2004", "RUF001", "RUF002", "RUF003"]
 
 [tool.mypy]
 python_version = "3.12"

@@ -1,0 +1,161 @@
+"""Patch 5 - pipeline orchestration."""
+
+from __future__ import annotations
+
+import dataclasses
+import json
+from datetime import datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+import pytest
+
+from flats_georgia import pipeline
+from flats_georgia.config import Settings, load_settings
+from flats_georgia.sources import SourceError
+from flats_georgia.telegram import TelegramError
+from tests.conftest import make_listing
+
+TZ = ZoneInfo("Asia/Tbilisi")
+QUIET_HOUR = datetime(2026, 9, 6, 15, 0, tzinfo=TZ)  # not in always_send_hours_local
+MORNING = datetime(2026, 9, 6, 11, 0, tzinfo=TZ)  # in always_send_hours_local
+
+
+class RecordingSender:
+    def __init__(self) -> None:
+        self.messages: list[str] = []
+        self.errors: list[str] = []
+
+    def send_message(self, text: str) -> None:
+        self.messages.append(text)
+
+    def send_error(self, text: str) -> None:
+        self.errors.append(text)
+
+
+@pytest.fixture
+def env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[Settings, RecordingSender]:
+    settings = dataclasses.replace(
+        load_settings(require_secrets=False), state_path=tmp_path / "seen_ids.json"
+    )
+    sender = RecordingSender()
+    monkeypatch.setattr(pipeline, "_make_sender", lambda *a, **k: sender)
+    return settings, sender
+
+
+def _patch_source(monkeypatch: pytest.MonkeyPatch, listings: object) -> None:
+    def fake_get_listings(_settings: Settings, **_kw: object) -> object:
+        if isinstance(listings, Exception):
+            raise listings
+        return listings
+
+    monkeypatch.setattr(pipeline, "get_listings", fake_get_listings)
+
+
+def test_new_listings_are_sent_and_state_written(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, [make_listing(1), make_listing(2), make_listing(3)])
+
+    code = pipeline.run(settings, now=QUIET_HOUR)
+
+    assert code == pipeline.EXIT_OK
+    assert sender.messages
+    assert "Новых объявлений: 3" in sender.messages[0]
+    stored = json.loads(settings.state_path.read_text(encoding="utf-8"))["ids"]
+    assert stored == [1, 2, 3]
+
+
+def test_second_run_sends_nothing(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    listings = [make_listing(1), make_listing(2)]
+    _patch_source(monkeypatch, listings)
+
+    assert pipeline.run(settings, now=QUIET_HOUR) == pipeline.EXIT_OK
+    sender.messages.clear()
+
+    assert pipeline.run(settings, now=QUIET_HOUR) == pipeline.EXIT_OK
+    assert sender.messages == []
+
+
+def test_morning_slot_sends_even_with_nothing_new(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, [make_listing(1)])
+    pipeline.run(settings, now=QUIET_HOUR)  # marks id 1 as seen
+    sender.messages.clear()
+
+    code = pipeline.run(settings, now=MORNING)
+
+    assert code == pipeline.EXIT_OK
+    assert len(sender.messages) == 1
+    assert "Новых объявлений нет." in sender.messages[0]
+
+
+def test_dry_run_sends_but_writes_no_state(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, [make_listing(1), make_listing(2)])
+
+    code = pipeline.run(settings, dry_run=True, now=QUIET_HOUR)
+
+    assert code == pipeline.EXIT_OK
+    assert sender.messages
+    assert not settings.state_path.exists()
+
+
+def test_force_full_resends_everything(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, [make_listing(1), make_listing(2)])
+    pipeline.run(settings, now=QUIET_HOUR)
+    sender.messages.clear()
+
+    code = pipeline.run(settings, force_full=True, now=QUIET_HOUR)
+
+    assert code == pipeline.EXIT_OK
+    assert "Новых объявлений: 2" in sender.messages[0]
+
+
+def test_source_failure_notifies_and_returns_nonzero(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, SourceError("API 403"))
+
+    code = pipeline.run(settings, now=QUIET_HOUR)
+
+    assert code == pipeline.EXIT_SOURCE_FAILED
+    assert len(sender.errors) == 1
+    assert sender.messages == []
+
+
+def test_send_failure_returns_nonzero(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, [make_listing(1)])
+
+    def boom(_text: str) -> None:
+        raise TelegramError("chat not found")
+
+    monkeypatch.setattr(sender, "send_message", boom)
+
+    code = pipeline.run(settings, now=QUIET_HOUR)
+
+    assert code == pipeline.EXIT_SEND_FAILED
+    assert len(sender.errors) == 1
+    # state not advanced on a failed send
+    assert not settings.state_path.exists()
+
+
+@pytest.mark.live
+def test_live_dry_run_end_to_end() -> None:
+    settings = load_settings(require_secrets=False)
+    assert pipeline.run(settings, dry_run=True, always_send=True) == pipeline.EXIT_OK

@@ -11,9 +11,12 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_ex
 
 from flats_georgia.config import Settings
 from flats_georgia.models import Listing, normalize_api
-from flats_georgia.sources import SourceError
 
 _TIMEOUT = httpx.Timeout(15.0)
+
+
+class SourceError(RuntimeError):
+    """A listing source failed in a way retries will not fix."""
 
 
 class _Retryable(Exception):
