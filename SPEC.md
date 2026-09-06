@@ -19,8 +19,9 @@ contacting).
 ## Stack
 
 - Python 3.12+
-- `httpx` (HTTP client with timeouts + ret/backoff), `selectolax` (HTML parsing
-  for the fallback source), `tenacity` (retry), stdlib `tomllib` for config.
+- `httpx` (HTTP client with timeouts + retry/backoff), `selectolax` (HTML parsing
+  for the fallback source), `tenacity` (retry), `tzdata` (IANA zones on Windows /
+  slim runners), `python-dotenv`, stdlib `tomllib` for config.
 - No web framework. The deliverable is a CLI script run by CI.
 - Runtime: GitHub Actions scheduled workflows on a **public** repository
   (unlimited free minutes; cron supported). State is committed back to the repo.
@@ -49,11 +50,11 @@ Query:
   page=<1..N>              # 20 results per page
 ```
 
-Response shape: `body.result == true`, listings at `body.data.data` (array),
-pagination hints at `body.data.total` / `body.data.last_page` /
-`body.data.per_page`. Paginate until the page array is empty or
-`page > last_page`. Do **not** rely on `GET /v1/statements/count` — in testing it
-ignored the query filters.
+Response shape: `body.result == true`, listings at `body.data.data` (array of 20).
+The list response carries **no** total/last_page fields, so paginate with `page=1,2,…`
+until a page returns an empty array (and always stop at `max_pages_per_run`). Do
+**not** rely on `GET /v1/statements/count` — in testing it ignored the query
+filters.
 
 Per-listing fields used: `id` (int, monotonically increasing — the newness
 signal), `uuid`, `dynamic_title`, `href_lang` (localized slugs), `address`
@@ -182,15 +183,16 @@ class Listing:
     price_gel: int | None
     area_m2: float | None
     rooms: str | None
+    bedrooms: str | None
     floor: int | None
     total_floors: int | None
     area_name: str          # urban_name
     district: str
     metro_station_id: int | None
-    posted_at: datetime     # parsed last_updated, tz=Asia/Tbilisi
+    posted_at: datetime | None  # parsed last_updated, tz=Asia/Tbilisi
     is_agency: bool
 
-def normalize_api(raw: dict) -> Listing:
+def normalize_api(raw: dict, *, listing_url_template: str, tz: ZoneInfo) -> Listing:
     ...
 ```
 

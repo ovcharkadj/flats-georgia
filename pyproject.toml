@@ -12,6 +12,7 @@ dependencies = [
     "selectolax>=0.3.21",
     "tenacity>=8.2",
     "python-dotenv>=1.0",
+    "tzdata>=2024.1",
 ]
 
 [project.optional-dependencies]
@@ -42,7 +43,7 @@ warn_unreachable = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["src", "."]
 markers = [
     "live: hits the real MyHome.ge / Telegram APIs (skipped unless selected)",
 ]

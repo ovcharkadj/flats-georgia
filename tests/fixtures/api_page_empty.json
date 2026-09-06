@@ -1,0 +1,21 @@
+{
+  "result": true,
+  "data": {
+    "data": [],
+    "search_report_uuid": null,
+    "map_settings": [],
+    "seo": {
+      "filters": {
+        "cities": [1],
+        "districts": [],
+        "urbans": [47],
+        "deal_types": [2],
+        "streets": [],
+        "grouped_streets": [],
+        "real_estate_types": [1],
+        "statuses": [],
+        "room_types": []
+      }
+    }
+  }
+}

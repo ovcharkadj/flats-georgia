@@ -1,0 +1,1884 @@
+{
+  "result": true,
+  "data": {
+    "data": [
+      {
+        "id": 25801515,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "05c9b201-7600-438f-bde7-f17a60953a50",
+        "price": {
+          "1": {
+            "price_total": 1200,
+            "price_square": 34
+          },
+          "2": {
+            "price_total": 459,
+            "price_square": 13
+          },
+          "3": {
+            "price_total": 395,
+            "price_square": 11
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260819/statements/oN1glw76a85a3d512e20.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260819/statements/oN1glw76a85a3d512e20_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260819/statements/oN1glw76a85a3d512e20_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260819/statements/5we1kps6a85a3d50ac7e.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260819/statements/5we1kps6a85a3d50ac7e_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260819/statements/5we1kps6a85a3d50ac7e_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ვაჟა-ფშაველა - IV კვარტ. ",
+        "area": 35,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": null,
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 04:00:11",
+        "floor": 3,
+        "total_floors": 5,
+        "street_id": 547,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 18,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 3820448,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "ლალი",
+        "grouped_street_id": 1609,
+        "parameters": [],
+        "comment": "ქირავდება 1 ოთახიანი ბინა ვაჟა-ფშაველას მე-4 კვარტალში, მეტრო უნივერსიტეტიდან 5 წუთის სავალზე.<br />\n<br />\nაივნით,ცენტრალური გათბობით,კონდიციონერით,ავეჯით და პ",
+        "has_color": true,
+        "is_vip": false,
+        "is_vip_plus": false,
+        "is_super_vip": true,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "physical",
+          "logo": null,
+          "is_premier_agent": null
+        }
+      },
+      {
+        "id": 25962961,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "2b9e0c36-cc39-4278-a0d2-959ccb523668",
+        "price": {
+          "1": {
+            "price_total": 1200,
+            "price_square": 27
+          },
+          "2": {
+            "price_total": 459,
+            "price_square": 10
+          },
+          "3": {
+            "price_total": 395,
+            "price_square": 9
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/UkpP5c86a9d22b4a51fb.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/UkpP5c86a9d22b4a51fb_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/UkpP5c86a9d22b4a51fb_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/MT4uZa86a9d22b48a85b.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/MT4uZa86a9d22b48a85b_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/MT4uZa86a9d22b48a85b_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ქავთარაძე პ. ქ. 62",
+        "area": 45,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 12:24:59",
+        "floor": 4,
+        "total_floors": 6,
+        "street_id": 1483,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 0,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 4151677,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "Gocha",
+        "grouped_street_id": 923,
+        "parameters": [],
+        "comment": "ქირავდება 42 მ² ბინა საბურთალოზე, პეტრე ქავთარაძის 62-ში. ბინა მდებარეობს მოვლილი კორპუსის მე-4 სართულზე და მოიცავს 1 საძინებელს, სტუდიოს ტიპის მისაღებს სამზარე",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": true,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25703832,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "60401c8e-a671-418e-8c0f-44ab129504ec",
+        "price": {
+          "1": {
+            "price_total": 1200,
+            "price_square": 20
+          },
+          "2": {
+            "price_total": 459,
+            "price_square": 8
+          },
+          "3": {
+            "price_total": 395,
+            "price_square": 7
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260808/statements/C5QW3R86a76d9ea33821.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260808/statements/C5QW3R86a76d9ea33821_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260808/statements/C5QW3R86a76d9ea33821_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260808/statements/AfHAfwT6a76d9ea1a363.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260808/statements/AfHAfwT6a76d9ea1a363_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260808/statements/AfHAfwT6a76d9ea1a363_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "დოლიძე ვ. ქ. ",
+        "area": 60,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 12:22:54",
+        "floor": 1,
+        "total_floors": 8,
+        "street_id": 494,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 29,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 4594789,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "ნიკა",
+        "grouped_street_id": 300,
+        "parameters": [],
+        "comment": "Urgent! 60 sq.m. 2-room apartment for rent in Saburtalo, on Dolidze Street, near Goodwill. 1/8 floor. (High first floor). The apartment has a loggia, is located",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": true,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "broker",
+          "logo": "https://static-statements.tnet.ge/uploads/202509/20250917/yIR16SF68cacd1d10317.webp",
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25960498,
+        "metro_station_id": 1,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "d316dc37-c6f8-421d-b00b-30c2fcac1d02",
+        "price": {
+          "1": {
+            "price_total": 1163,
+            "price_square": 29
+          },
+          "2": {
+            "price_total": 445,
+            "price_square": 11
+          },
+          "3": {
+            "price_total": 383,
+            "price_square": 10
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/yUKh3vp6a9c150d1283e.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/yUKh3vp6a9c150d1283e_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/yUKh3vp6a9c150d1283e_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/uyOs7CF6a9c155421ae2.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/uyOs7CF6a9c155421ae2_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/uyOs7CF6a9c155421ae2_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "პოლიტკოვსკაია ა. ქ. (ჯიქია) 6",
+        "area": 40,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "2",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-05 20:00:06",
+        "floor": 7,
+        "total_floors": 7,
+        "street_id": 2008,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 1,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 2320677,
+        "price_type_id": 3,
+        "statement_currency_id": 2,
+        "currency_id": 2,
+        "user_title": "ქეთი",
+        "grouped_street_id": 742,
+        "parameters": [],
+        "comment": "აგენტები არ დამიკავშირდეთ!!<br />\n<br />\n🏠11 სექტემბრიფან ქირავდება 40 მ2 ბინა ანა პოლიტკოვსკაიას ქუჩაზე, თბილისში.<br />\n<br />\nმყუდრო ბინა მდებარეობს საბურთა",
+        "has_color": true,
+        "is_vip": false,
+        "is_vip_plus": true,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "physical",
+          "logo": null,
+          "is_premier_agent": null
+        }
+      },
+      {
+        "id": 25958585,
+        "metro_station_id": 4,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "4e497cdc-f70c-4bb4-aa06-9399d1e9d6cc",
+        "price": {
+          "1": {
+            "price_total": 1306,
+            "price_square": 36
+          },
+          "2": {
+            "price_total": 500,
+            "price_square": 14
+          },
+          "3": {
+            "price_total": 430,
+            "price_square": 12
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/VrO2FZ56a9bfac66bc7d.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/VrO2FZ56a9bfac66bc7d_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/VrO2FZ56a9bfac66bc7d_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/FJWioai6a9be4137d2a5.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/FJWioai6a9be4137d2a5_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/FJWioai6a9be4137d2a5_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "შევარდენიძის ქ. ",
+        "area": 36,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-05 15:24:04",
+        "floor": 7,
+        "total_floors": 8,
+        "street_id": 1595,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 1,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 4181596,
+        "price_type_id": 3,
+        "statement_currency_id": 2,
+        "currency_id": 2,
+        "user_title": "გიორგი",
+        "grouped_street_id": 987,
+        "parameters": [],
+        "comment": "ქირავდება  ბინა შევარდენიძის ქუჩაზე საბურთალოს ერთ-ერთ მშვიდ და მოსახერხებელ უბანში მდებარეობს ნათელი, მყუდრო და სრულად კეთილმოწყობილი ბინა. ბინა გამოირჩევა კომ",
+        "has_color": true,
+        "is_vip": false,
+        "is_vip_plus": true,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "physical",
+          "logo": null,
+          "is_premier_agent": null
+        }
+      },
+      {
+        "id": 25506798,
+        "metro_station_id": 4,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "1bfc24f1-0de7-41a9-89df-4b1490d33e6f",
+        "price": {
+          "1": {
+            "price_total": 1000,
+            "price_square": 25
+          },
+          "2": {
+            "price_total": 383,
+            "price_square": 10
+          },
+          "3": {
+            "price_total": 329,
+            "price_square": 8
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202607/20260718/statements/kTqfaK66a5baa4a8416a.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202607/20260718/statements/kTqfaK66a5baa4a8416a_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202607/20260718/statements/kTqfaK66a5baa4a8416a_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202607/20260718/statements/5D5kkKj6a5baa4a57af1.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202607/20260718/statements/5D5kkKj6a5baa4a57af1_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202607/20260718/statements/5D5kkKj6a5baa4a57af1_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ვაჟა-ფშაველას II შეს. 20",
+        "area": 40,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 12:58:06",
+        "floor": 7,
+        "total_floors": 8,
+        "street_id": 537,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 50,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 447118,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "ავთო",
+        "grouped_street_id": 327,
+        "parameters": [],
+        "comment": null,
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "broker",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25893626,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "699046be-37dc-4964-9e69-8844d6dbed98",
+        "price": {
+          "1": {
+            "price_total": 1306,
+            "price_square": 15
+          },
+          "2": {
+            "price_total": 500,
+            "price_square": 6
+          },
+          "3": {
+            "price_total": 430,
+            "price_square": 5
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260830/statements/MJHWM5Z6a93d8d77bfe1.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260830/statements/MJHWM5Z6a93d8d77bfe1_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260830/statements/MJHWM5Z6a93d8d77bfe1_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260830/statements/ztGI1mV6a93d8d77bd1a.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260830/statements/ztGI1mV6a93d8d77bd1a_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260830/statements/ztGI1mV6a93d8d77bd1a_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ფანასკერტელ-ციციშვილის ქ. 13",
+        "area": 90,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 10:17:44",
+        "floor": 8,
+        "total_floors": 9,
+        "street_id": 3206,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 7,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 3426595,
+        "price_type_id": 3,
+        "statement_currency_id": 2,
+        "currency_id": 2,
+        "user_title": "თეა",
+        "grouped_street_id": 898,
+        "parameters": [],
+        "comment": "ქირავდება ფანასკერტელზე, ეკლესიასთან, ჩეხური პროექტის 2 ოთახიანი ბინა, 1 იზოლირებული საძინებლით, იზოლირებული სამზქრეულოთი, დიდი მისაღებით, დიდი ვერანდით, ყველან",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "broker",
+          "logo": "https://static-statements.tnet.ge/uploads/202512/20251206/w7vP0fA6933a80275639.webp",
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25959252,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 2,
+        "uuid": "2b645de6-cb76-480d-9adc-2b01c5100a73",
+        "price": {
+          "1": {
+            "price_total": 1045,
+            "price_square": 19
+          },
+          "2": {
+            "price_total": 400,
+            "price_square": 7
+          },
+          "3": {
+            "price_total": 344,
+            "price_square": 6
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/pvfqXAe6a9bfdcae0700.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/pvfqXAe6a9bfdcae0700_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/pvfqXAe6a9bfdcae0700_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/kg6EzM86a9bfdcae35d1.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/kg6EzM86a9bfdcae35d1_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/kg6EzM86a9bfdcae35d1_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ნუცუბიძის ქ.  60",
+        "area": 55,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": null,
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 00:00:11",
+        "floor": 2,
+        "total_floors": 8,
+        "street_id": 2948,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 1,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 3868008,
+        "price_type_id": 3,
+        "statement_currency_id": 2,
+        "currency_id": 2,
+        "user_title": "ნათია",
+        "grouped_street_id": 708,
+        "parameters": [],
+        "comment": "🏡 ქირავდება მყუდრო ბინა იდეალურ ლოკაციაზე — დელისის მეტროსთან<br />\n<br />\nბინა მდებარეობს ძალიან კარგ და უსაფრთხო უბანში, დელისის მეტროდან სულ რაღაც 100 მეტრშ",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "physical",
+          "logo": null,
+          "is_premier_agent": null
+        }
+      },
+      {
+        "id": 25960567,
+        "metro_station_id": 5,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "8adeff58-43bb-4262-b4a6-9cdc39fa6c15",
+        "price": {
+          "1": {
+            "price_total": 1200,
+            "price_square": 27
+          },
+          "2": {
+            "price_total": 459,
+            "price_square": 10
+          },
+          "3": {
+            "price_total": 395,
+            "price_square": 9
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/xpUSw0W6a9c174bd86ee.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/xpUSw0W6a9c174bd86ee_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/xpUSw0W6a9c174bd86ee_thumb.webp",
+            "is_main": true
+          }
+        ],
+        "address": "გოთუას ქ. 16",
+        "area": 45,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": null,
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-05 17:21:54",
+        "floor": 3,
+        "total_floors": 7,
+        "street_id": 2724,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 1,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 9834998,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "ზურა",
+        "grouped_street_id": 230,
+        "parameters": [],
+        "comment": "ვარ აგენტი. 1 ოთახი და ცალკე სამზარეულოთი. ბინის ვიდეოსთვის მომწერეთ ვაცაპზე",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25942431,
+        "metro_station_id": 1,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "fa55df91-9df4-499c-b3d2-69d75e4dac67",
+        "price": {
+          "1": {
+            "price_total": 950,
+            "price_square": 24
+          },
+          "2": {
+            "price_total": 364,
+            "price_square": 9
+          },
+          "3": {
+            "price_total": 313,
+            "price_square": 8
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260903/statements/FZRNyWd6a9988d688794.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260903/statements/FZRNyWd6a9988d688794_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260903/statements/FZRNyWd6a9988d688794_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260903/statements/65JmMUF6a9988d65a225.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260903/statements/65JmMUF6a9988d65a225_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260903/statements/65JmMUF6a9988d65a225_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ვაჟა-ფშაველა - IV კვარტ. ",
+        "area": 40,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-05 16:16:49",
+        "floor": 2,
+        "total_floors": 8,
+        "street_id": 547,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 3,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 2423973,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "თიკო",
+        "grouped_street_id": 1609,
+        "parameters": [],
+        "comment": "ქირავდება მეტროს უნივერსიტეტის თავზე ერთ ოთაზიანი ბინა ავეჯით ტექნიკით",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25955650,
+        "metro_station_id": 5,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 2,
+        "uuid": "f29c9bde-6676-4b5f-ae17-1c6ca143a52f",
+        "price": {
+          "1": {
+            "price_total": 1100,
+            "price_square": 23
+          },
+          "2": {
+            "price_total": 421,
+            "price_square": 9
+          },
+          "3": {
+            "price_total": 362,
+            "price_square": 8
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/DradueH6a9b361470f67.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/DradueH6a9b361470f67_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/DradueH6a9b361470f67_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/aDzctIy6a9b360cee188.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/aDzctIy6a9b360cee188_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260905/statements/aDzctIy6a9b360cee188_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ბერბუკის ქ. 8",
+        "area": 47,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-05 14:57:29",
+        "floor": 2,
+        "total_floors": 9,
+        "street_id": 1991,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 1,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 2400767,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "Levani",
+        "grouped_street_id": 151,
+        "parameters": [],
+        "comment": "🏡 ქირავდება 47 მ² | 2 ოთახი | 1 საძინებელი | აივნით<br />\n<br />\n✨ ახალი აშენებული, არასტანდარტული პროექტის ბინა — მე-2 სართული<br />\n<br />\n• 47 მ²<br />\n<br ",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25813416,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "898e6cc3-cbe9-42f8-a3db-112f5b11f9cd",
+        "price": {
+          "1": {
+            "price_total": 1200,
+            "price_square": 31
+          },
+          "2": {
+            "price_total": 459,
+            "price_square": 12
+          },
+          "3": {
+            "price_total": 395,
+            "price_square": 10
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260829/statements/UibASch6a92968da96d9.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260829/statements/UibASch6a92968da96d9_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260829/statements/UibASch6a92968da96d9_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202608/20260820/statements/oKRTuC96a86fd02f1a4e.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202608/20260820/statements/oKRTuC96a86fd02f1a4e_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202608/20260820/statements/oKRTuC96a86fd02f1a4e_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ჩიქოვანი ს. ქ. 38",
+        "area": 39,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": null,
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-05 14:41:27",
+        "floor": 3,
+        "total_floors": 12,
+        "street_id": 1649,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 17,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 9505233,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "ეკა",
+        "grouped_street_id": 1025,
+        "parameters": [],
+        "comment": "საბურთალო (ხილიანზე, ს.ჩიქოვანის 38) ტელევიზიიდან 10 წუთის სავალზე  ქირავდება ხანგრძლივი დროით 2 ოთახიანი კეთილმოწყობილი ბინა. ბინა მდებარეობს კორპუსის მესამე ს",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "physical",
+          "logo": null,
+          "is_premier_agent": null
+        }
+      },
+      {
+        "id": 23087222,
+        "metro_station_id": 5,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "9d2d8772-d1ac-4fd5-84e8-9bbd5b100395",
+        "price": {
+          "1": {
+            "price_total": 800,
+            "price_square": 40
+          },
+          "2": {
+            "price_total": 306,
+            "price_square": 15
+          },
+          "3": {
+            "price_total": 263,
+            "price_square": 13
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260902/statements/uyOgmCG6a97b99e89898.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260902/statements/uyOgmCG6a97b99e89898_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260902/statements/uyOgmCG6a97b99e89898_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260902/statements/hduGy6z6a97b99e8ace5.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260902/statements/hduGy6z6a97b99e8ace5_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260902/statements/hduGy6z6a97b99e8ace5_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "კვერნაძე ბ. ქ. 15",
+        "area": 20,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": null,
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-05 09:30:13",
+        "floor": 1,
+        "total_floors": 1,
+        "street_id": 3248,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 274,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 4001895,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "დოდო",
+        "grouped_street_id": 491,
+        "parameters": [],
+        "comment": "საბურთალოზე, სპორტის სასახლის გვერდით, კვერნაძის ქუჩაზე ქირავდება  იზოლირებული სტუდიოს ტიპის ოთახი. ოთახში არის სარეცხის მანქანა და მაცივარი. ბუნებრივი აირი და ",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "physical",
+          "logo": null,
+          "is_premier_agent": null
+        }
+      },
+      {
+        "id": 25954857,
+        "metro_station_id": 3,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "461d67e8-0ef0-4501-8637-77f427d9756d",
+        "price": {
+          "1": {
+            "price_total": 1306,
+            "price_square": 34
+          },
+          "2": {
+            "price_total": 500,
+            "price_square": 13
+          },
+          "3": {
+            "price_total": 430,
+            "price_square": 11
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/BEUoN396a9af558525dc.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/BEUoN396a9af558525dc_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/BEUoN396a9af558525dc_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/j12Pwv76a9af55869a73.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/j12Pwv76a9af55869a73_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/j12Pwv76a9af55869a73_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ვაჟა-ფშაველას II შეს. 51",
+        "area": 38,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-04 20:44:41",
+        "floor": 5,
+        "total_floors": 8,
+        "street_id": 541,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 2,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 4540531,
+        "price_type_id": 3,
+        "statement_currency_id": 2,
+        "currency_id": 2,
+        "user_title": "Yur",
+        "grouped_street_id": 327,
+        "parameters": [],
+        "comment": "@Yuriy_Selukov - Telegram<br />\n<br />\nNot call - only text",
+        "has_color": false,
+        "is_vip": true,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25963636,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "47c76d1a-f6b5-47e4-a3b2-0b5196183c57",
+        "price": {
+          "1": {
+            "price_total": 1300,
+            "price_square": 15
+          },
+          "2": {
+            "price_total": 498,
+            "price_square": 6
+          },
+          "3": {
+            "price_total": 428,
+            "price_square": 5
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/ibU0lCE6a9d3d16cbd68.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/ibU0lCE6a9d3d16cbd68_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/ibU0lCE6a9d3d16cbd68_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/RPnV3K06a9d3d16cc6e6.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/RPnV3K06a9d3d16cc6e6_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/RPnV3K06a9d3d16cc6e6_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "შევარდენიძის ქ. ",
+        "area": 85,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 14:16:12",
+        "floor": 5,
+        "total_floors": 8,
+        "street_id": 1595,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 0,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 9725687,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "მიშო",
+        "grouped_street_id": 987,
+        "parameters": [],
+        "comment": "For rent a renovated 2-room apartment with a loggia and a balcony. The apartment is located on the 5th floor of an 8-story building. It has 2 bedrooms. The area",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": "https://static-statements.tnet.ge/uploads/202605/20260526/4R1y4l26a14bd90d903e.webp",
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25954636,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "6d6868de-86c5-4433-964d-3d18ea69e0da",
+        "price": {
+          "1": {
+            "price_total": 1300,
+            "price_square": 19
+          },
+          "2": {
+            "price_total": 498,
+            "price_square": 7
+          },
+          "3": {
+            "price_total": 428,
+            "price_square": 6
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/FRTb3nR6a9aef6d601d5.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/FRTb3nR6a9aef6d601d5_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/FRTb3nR6a9aef6d601d5_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/WdwmquF6a9aef6d8484c.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/WdwmquF6a9aef6d8484c_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260904/statements/WdwmquF6a9aef6d8484c_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "რ.ჩხიკვაძის ქ.",
+        "area": 70,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "2",
+        "room": "3",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "3 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "3-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-3-otaxiani-bina-saburtaloze",
+          "en": "3-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-3-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 14:16:01",
+        "floor": 10,
+        "total_floors": 16,
+        "street_id": null,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 2,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 9473118,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "Aleksandre",
+        "grouped_street_id": null,
+        "parameters": [],
+        "comment": "ქირავდება ნათელი და კომფორტული ბინა რამაზ ჩხიკვაძის ქუჩაზე (ნუცუბიძის ქუჩასთან ძალიან ახლოს). ძველი 16 სართულიანი კორპუსის მე-10 სართულზე (70 კვ.მ). ბინას აქვს ",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": "https://static-statements.tnet.ge/uploads/202511/20251115/7w21PvB69184df4498cf.webp",
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25963628,
+        "metro_station_id": 2,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "8212b633-f402-44a8-b2b3-a8ff69c829bd",
+        "price": {
+          "1": {
+            "price_total": 1000,
+            "price_square": 22
+          },
+          "2": {
+            "price_total": 383,
+            "price_square": 9
+          },
+          "3": {
+            "price_total": 329,
+            "price_square": 7
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/BbeJgvV6a9d3cad50e43.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/BbeJgvV6a9d3cad50e43_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/BbeJgvV6a9d3cad50e43_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/aWtjh3T6a9d3cac923c6.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/aWtjh3T6a9d3cac923c6_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/aWtjh3T6a9d3cac923c6_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ვაჟა-ფშაველას II შეს. ",
+        "area": 45,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "1",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "1 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "1-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-1-otaxiani-bina-saburtaloze",
+          "en": "1-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-1-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 14:14:51",
+        "floor": 8,
+        "total_floors": 10,
+        "street_id": 537,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 0,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 5299827,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "თედი",
+        "grouped_street_id": 327,
+        "parameters": [],
+        "comment": "ქირავდება 1 ოთახინია ბინა ვაჟა-ფშაველას გამზირზე,  ( მოდულის წინ)",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25963620,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 1,
+        "uuid": "afcf6a4c-d103-487d-a8bd-a3796a89c5bf",
+        "price": {
+          "1": {
+            "price_total": 1300,
+            "price_square": 17
+          },
+          "2": {
+            "price_total": 498,
+            "price_square": 6
+          },
+          "3": {
+            "price_total": 428,
+            "price_square": 6
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/J3VrOAB6a9d3cc0bda4a.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/J3VrOAB6a9d3cc0bda4a_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/J3VrOAB6a9d3cc0bda4a_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/Dk6JSWg6a9d3cc0bce92.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/Dk6JSWg6a9d3cc0bce92_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/Dk6JSWg6a9d3cc0bce92_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "შევარდენიძის ქ. ",
+        "area": 77,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 14:13:35",
+        "floor": 5,
+        "total_floors": 8,
+        "street_id": 1595,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 0,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 9725687,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "მიშო",
+        "grouped_street_id": 987,
+        "parameters": [],
+        "comment": "For rent a renovated 2-room apartment with a loggia and a balcony. The apartment is located on the 5th floor of an 8-story building. It has 2 bedrooms. The area",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": "https://static-statements.tnet.ge/uploads/202605/20260526/4R1y4l26a14bd90d903e.webp",
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25963613,
+        "metro_station_id": null,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 2,
+        "uuid": "e96b0042-9750-47e9-b62f-c48bb5083526",
+        "price": {
+          "1": {
+            "price_total": 1306,
+            "price_square": 29
+          },
+          "2": {
+            "price_total": 500,
+            "price_square": 11
+          },
+          "3": {
+            "price_total": 430,
+            "price_square": 10
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/19uZYlJ6a9d3c137deea.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/19uZYlJ6a9d3c137deea_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/19uZYlJ6a9d3c137deea_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/4lCblIc6a9d3c137b2e2.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/4lCblIc6a9d3c137b2e2_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/4lCblIc6a9d3c137b2e2_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "მარშალ გელოვანის გამზ. 34",
+        "area": 45,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "1",
+        "room": "2",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "2 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "2-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-2-otaxiani-bina-saburtaloze",
+          "en": "2-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-2-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 14:11:39",
+        "floor": 9,
+        "total_floors": 15,
+        "street_id": 299,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 0,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 5501448,
+        "price_type_id": 3,
+        "statement_currency_id": 2,
+        "currency_id": 2,
+        "user_title": "ბექა",
+        "grouped_street_id": 2222,
+        "parameters": [],
+        "comment": "‌ქირავდება კეთილმოწყობილი ბინა ,მარშალ გელოვანის ქუჩაზე მაღაზია ,, კონტეინერი\" ს გვერდით, გარემონტებული, ყველა აუცილებელი ავეჯით და ტექნიკით. დაწვრილებით ინფორმ",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": "https://static.my.ge/myhome/maklers/logos/9284.jpg",
+          "is_premier_agent": false
+        }
+      },
+      {
+        "id": 25963590,
+        "metro_station_id": 4,
+        "deal_type_id": 2,
+        "real_estate_type_id": 1,
+        "status_id": 2,
+        "uuid": "7303f651-8a02-497d-94fd-418f94c74840",
+        "price": {
+          "1": {
+            "price_total": 1300,
+            "price_square": 19
+          },
+          "2": {
+            "price_total": 498,
+            "price_square": 7
+          },
+          "3": {
+            "price_total": 428,
+            "price_square": 6
+          }
+        },
+        "price_negotiable": false,
+        "price_from": false,
+        "lat": null,
+        "lng": null,
+        "images": [
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/k8CcLOq6a9d39d4d98bd.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/k8CcLOq6a9d39d4d98bd_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/k8CcLOq6a9d39d4d98bd_thumb.webp",
+            "is_main": true
+          },
+          {
+            "large": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/dt8FOiL6a9d39d6a2d22.webp",
+            "blur": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/dt8FOiL6a9d39d6a2d22_blur.webp",
+            "thumb": "https://static-statements.tnet.ge/uploads/202609/20260906/statements/dt8FOiL6a9d39d6a2d22_thumb.webp",
+            "is_main": false
+          }
+        ],
+        "address": "ბოჭორიშვილის ქ. ",
+        "area": 70,
+        "yard_area": null,
+        "area_type_id": 1,
+        "bedroom": "2",
+        "room": "3",
+        "gifts": [],
+        "favorite": false,
+        "is_old": false,
+        "has_3d": false,
+        "3d_url": null,
+        "dynamic_title": "3 room apartment for rent in saburtalo",
+        "project_id": null,
+        "dynamic_slug": "3-room-apartment-for-rent-in-saburtalo",
+        "href_lang": {
+          "ka": "qiravdeba-3-otaxiani-bina-saburtaloze",
+          "en": "3-room-apartment-for-rent-in-saburtalo",
+          "ru": "sdaetsia-3-komnatnaia-kvartira-v-saburtalo"
+        },
+        "last_updated": "2026-09-06 14:06:17",
+        "floor": 3,
+        "total_floors": 10,
+        "street_id": 253,
+        "urban_id": 47,
+        "urban_name": "Saburtalo",
+        "district_id": 4,
+        "district_name": "Vake-Saburtalo",
+        "city_id": 1,
+        "city_name": "Tbilisi",
+        "quantity_of_day": 0,
+        "hidden": false,
+        "viewed": false,
+        "user_id": 9316373,
+        "price_type_id": 3,
+        "statement_currency_id": 1,
+        "currency_id": 1,
+        "user_title": "საბა",
+        "grouped_street_id": 172,
+        "parameters": [],
+        "comment": "‌🏠 ქირავდება 30 სექტემბრიდან იდეალური ბინა ახმეტელის მეტროსთან ახლოს!<br />\n<br />\nბინა მდებარეობს მეტროსთან ახლოს, მოსახერხებელ და კომფორტულ ადგილას.<br />\n<b",
+        "has_color": false,
+        "is_vip": false,
+        "is_vip_plus": false,
+        "is_super_vip": false,
+        "user_statements_count": 0,
+        "is_promoted": false,
+        "middle_slug": "for-rent-apartment",
+        "paid_stickers": [],
+        "user_type": {
+          "type": "agent",
+          "logo": null,
+          "is_premier_agent": false
+        }
+      }
+    ],
+    "search_report_uuid": null,
+    "map_settings": [],
+    "seo": {
+      "filters": {
+        "cities": [
+          1
+        ],
+        "districts": [],
+        "urbans": [
+          47
+        ],
+        "deal_types": [
+          2
+        ],
+        "streets": [],
+        "grouped_streets": [],
+        "real_estate_types": [
+          1
+        ],
+        "statuses": [],
+        "room_types": []
+      }
+    }
+  }
+}
