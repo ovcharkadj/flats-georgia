@@ -15,8 +15,15 @@ web pages return HTTP 403 to non-browser clients, so the JSON API is the sole
 source (see SPEC "No fallback source"). The API-failure notification, previously
 folded into Patch 8, is now part of the pipeline (Patch 5). Patches renumbered.
 
-Status: Patches 1–7 done, pushed, and running on GitHub Actions (Digest delivers
-to Telegram). Patch 8 below was added after the first live run.
+**Status (2026-09-07): LIVE. Patches 1–11 done and pushed.** The digest runs from
+an external cron (cron-job.org) that hits the `workflow_dispatch` API every ~30
+min; the GitHub `schedule:` block is a backup. Telegram delivery, quiet hours,
+once-a-day digest, price ordering — all verified live. Patches 8–11 were added
+after first-run feedback (see their notes). Repo: github.com/ovcharkadj/flats-georgia.
+
+To continue in a fresh session: open it in this folder (memory auto-loads),
+re-attach `ПРАВИЛАОБЩЕНИЯ.md`, and read `SPEC.md` + this file first. Nothing to
+copy — code lives in git here and on GitHub.
 
 ### Patch 8: Order the digest by price (most expensive first)
 Scope: `pipeline._by_price_desc` sorts the selected listings by `price_usd`
