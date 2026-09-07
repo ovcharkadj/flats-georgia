@@ -24,6 +24,7 @@ def test_default_config_loads_the_locked_filter() -> None:
     assert settings.filter.urbans == (47,)
     assert settings.behaviour.timezone == "Asia/Tbilisi"
     assert settings.behaviour.always_send_hours_local == (11,)
+    assert settings.behaviour.quiet_hours_local == tuple(range(0, 11))
     assert settings.source.website_key == "myhome"
     assert settings.state_path == REPO_ROOT / "state" / "seen_ids.json"
 
@@ -87,10 +88,12 @@ def test_malformed_config_is_reported(tmp_path: Path) -> None:
             [behaviour]
             request_delay_seconds = 1.5
             request_jitter_seconds = 1.0
+            message_pause_seconds = 3.0
             max_pages_per_run = 10
             max_stored_ids = 20000
             timezone = "Asia/Tbilisi"
             always_send_hours_local = [11]
+            quiet_hours_local = [0, 1, 2]
 
             [source]
             api_url = "x"

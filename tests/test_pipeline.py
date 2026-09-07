@@ -17,8 +17,9 @@ from flats_georgia.telegram import TelegramError
 from tests.conftest import make_listing
 
 TZ = ZoneInfo("Asia/Tbilisi")
-QUIET_HOUR = datetime(2026, 9, 6, 15, 0, tzinfo=TZ)  # not in always_send_hours_local
-MORNING = datetime(2026, 9, 6, 11, 0, tzinfo=TZ)  # in always_send_hours_local
+QUIET_HOUR = datetime(2026, 9, 6, 15, 0, tzinfo=TZ)  # awake, not a guaranteed slot
+MORNING = datetime(2026, 9, 6, 11, 0, tzinfo=TZ)  # guaranteed slot, outside quiet hours
+NIGHT = datetime(2026, 9, 7, 1, 9, tzinfo=TZ)  # inside quiet_hours_local (the 01:09 incident)
 
 
 class RecordingSender:
@@ -153,6 +154,36 @@ def test_send_failure_returns_nonzero(
     assert len(sender.errors) == 1
     # state not advanced on a failed send
     assert not settings.state_path.exists()
+
+
+def test_quiet_hours_suppress_everything(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+
+    def fail_if_called(*_a: object, **_k: object) -> object:
+        raise AssertionError("source must not be hit during quiet hours")
+
+    monkeypatch.setattr(pipeline, "get_listings", fail_if_called)
+
+    code = pipeline.run(settings, always_send=True, now=NIGHT)
+
+    assert code == pipeline.EXIT_OK
+    assert sender.messages == []
+    assert sender.errors == []
+    assert not settings.state_path.exists()
+
+
+def test_force_full_still_runs_during_quiet_hours(
+    env: tuple[Settings, RecordingSender], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    settings, sender = env
+    _patch_source(monkeypatch, [make_listing(1)])
+
+    code = pipeline.run(settings, force_full=True, now=NIGHT)
+
+    assert code == pipeline.EXIT_OK
+    assert sender.messages
 
 
 def test_digest_is_ordered_most_expensive_first(

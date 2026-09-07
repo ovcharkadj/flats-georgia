@@ -65,6 +65,11 @@ def run(
     """Run one digest cycle. Returns a process exit code."""
     tz = ZoneInfo(settings.behaviour.timezone)
     moment = now or datetime.now(tz)
+
+    if moment.hour in settings.behaviour.quiet_hours_local and not (force_full or dry_run):
+        log.info("quiet hours (%02d:00 local) - skipping this run", moment.hour)
+        return EXIT_OK
+
     sender = _make_sender(settings, dry_run=dry_run)
     try:
         try:

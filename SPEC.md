@@ -103,6 +103,11 @@ without touching callers.
 - `always_send_hours_local = [11]`: a run whose local hour is in this list (or
   `--always-send`) sends even with nothing new; other runs stay silent when
   there is nothing.
+- `quiet_hours_local = [0..10]`: a run whose local hour is in this list sends
+  **nothing at all** (not even error notices) and exits early before fetching -
+  `--force-full` and `--dry-run` bypass it. This is the real guard against
+  GitHub delaying an evening cron past midnight (observed: a 19:00 UTC cron ran
+  at 21:09 UTC = 01:09 Tbilisi).
 - Secrets never enter the repo: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` live only
   in GitHub Actions secrets / local `.env`.
 

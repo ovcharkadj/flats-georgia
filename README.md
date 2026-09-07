@@ -6,15 +6,20 @@ Tbilisi; USD 300–500 / month; long-term rent**.
 
 It runs on GitHub Actions on a schedule (Tbilisi time, UTC+4):
 
-| Run | What it sends |
-|-----|---------------|
+| Run (Tbilisi) | What it sends |
+|---------------|---------------|
 | 11:00 daily | always a digest — the new listings, or "Новых объявлений нет." |
-| 14:00 / 17:00 / 20:00 / 23:00 | a message **only if** new matching listings appeared |
+| 14:00 / 17:00 / 20:00 | a message **only if** new matching listings appeared |
+
+Quiet hours: nothing is sent between 00:00 and 11:00 Tbilisi
+(`quiet_hours_local` in `config.toml`), enforced in code so a cron that GitHub
+delays past midnight still stays silent.
 
 Each listing is one block: price (`$` and `₾`), rooms, area, floor, area + nearest
-metro, owner/agency, posting time, and the link on its own line. "New" is decided
-by the MyHome listing id, which is stable when a listing is bumped — so re-bumped
-old listings are never re-sent.
+metro, owner/agency, posting time, and the link on its own line. The digest is
+ordered by price, most expensive first. "New" is decided by the MyHome listing
+id, which is stable when a listing is bumped — so re-bumped old listings are
+never re-sent.
 
 Design: [`SPEC.md`](SPEC.md) · Build plan: [`ROADMAP.md`](ROADMAP.md).
 

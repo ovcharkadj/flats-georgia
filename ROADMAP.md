@@ -27,6 +27,17 @@ priceless listing come out 500 → 420 → 350 → (no price) in the message bod
 Boundary: filter, schedule, and delivery unchanged; ordering only.
 Depends on: Patch 5.
 
+### Patch 9: Quiet hours + trimmed schedule (owner got a 01:09 notification)
+Scope: `quiet_hours_local` (00:00–10:59 Tbilisi) in config; `pipeline.run` exits
+early before fetching when the current local hour is quiet, unless `--force-full`
+or `--dry-run`. `digest.yml`: drop the 23:00 Tbilisi cron, split the intraday
+cron into `0 10/13/16` (14:00/17:00/20:00 Tbilisi).
+Acceptance: a run at 01:09 with `always_send` sends nothing, hits no source, writes
+no state; `--force-full` at 01:09 still runs; `test_workflows` asserts the new
+cron set and the absence of `0 19 * * *`.
+Boundary: filter unchanged; only schedule and the quiet-hours gate.
+Depends on: Patch 6, Patch 8.
+
 ## Patches
 
 ### Patch 1: Repository skeleton and configuration

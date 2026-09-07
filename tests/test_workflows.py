@@ -37,7 +37,8 @@ def test_digest_schedules_and_morning_branch() -> None:
     triggers = data.get("on") or data.get(True)
     crons = {entry["cron"] for entry in triggers["schedule"]}
     assert "0 7 * * *" in crons  # 11:00 Tbilisi guaranteed
-    assert "0 10,13,16,19 * * *" in crons  # intraday
+    assert {"0 10 * * *", "0 13 * * *", "0 16 * * *"} <= crons  # 14/17/20 Tbilisi
+    assert "0 19 * * *" not in crons  # no 23:00 Tbilisi run
 
     run_step = next(
         step for step in data["jobs"]["run"]["steps"] if step.get("name") == "Run digest"

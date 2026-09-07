@@ -50,6 +50,7 @@ class BehaviourConfig:
     max_stored_ids: int
     timezone: str
     always_send_hours_local: tuple[int, ...]
+    quiet_hours_local: tuple[int, ...]
 
 
 @dataclass(frozen=True, slots=True)
@@ -155,6 +156,7 @@ def load_settings(
         max_stored_ids=beh.int_("max_stored_ids"),
         timezone=beh.str_("timezone"),
         always_send_hours_local=beh.int_tuple("always_send_hours_local"),
+        quiet_hours_local=beh.int_tuple("quiet_hours_local"),
     )
 
     source_config = SourceConfig(

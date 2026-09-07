@@ -3,9 +3,13 @@ name: Digest
 on:
   workflow_dispatch:
   schedule:
-    # times are UTC; Georgia is UTC+4 year-round
-    - cron: "0 7 * * *"          # 11:00 Tbilisi - guaranteed daily digest
-    - cron: "0 10,13,16,19 * * *" # 14/17/20/23 Tbilisi - only if something is new
+    # times are UTC; Georgia is UTC+4 year-round. Nothing after 20:00 Tbilisi -
+    # GitHub can delay a run by 1-2h and the pipeline also enforces quiet hours
+    # (00:00-11:00 Tbilisi), so a late run just does nothing.
+    - cron: "0 7 * * *"  # 11:00 Tbilisi - guaranteed daily digest
+    - cron: "0 10 * * *" # 14:00 Tbilisi - only if something is new
+    - cron: "0 13 * * *" # 17:00 Tbilisi - only if something is new
+    - cron: "0 16 * * *" # 20:00 Tbilisi - only if something is new
 
 concurrency:
   group: digest
