@@ -59,12 +59,34 @@ def test_save_caps_to_the_highest_ids(tmp_path: Path) -> None:
 
 def test_round_trip_load_after_save(tmp_path: Path) -> None:
     path = tmp_path / "s.json"
-    SeenStore(path, ids=[100, 200, 300], max_stored=100).save()
+    store = SeenStore(path, ids=[100, 200, 300], max_stored=100)
+    store.mark_digest_sent("2026-09-07")
+    store.save()
 
     reloaded = SeenStore.load(path, max_stored=100)
     assert 200 in reloaded
     assert 999 not in reloaded
     assert len(reloaded) == 3
+    assert reloaded.last_digest_date == "2026-09-07"
+
+
+def test_last_digest_date_defaults_to_none_and_survives_old_files(tmp_path: Path) -> None:
+    path = tmp_path / "s.json"
+    path.write_text(json.dumps({"ids": [1, 2], "updated_at": "x"}), encoding="utf-8")
+
+    store = SeenStore.load(path, max_stored=100)
+    assert store.last_digest_date is None
+
+    store.mark_digest_sent("2026-09-07")
+    store.save()
+    assert json.loads(path.read_text(encoding="utf-8"))["last_digest_date"] == "2026-09-07"
+
+
+def test_non_string_last_digest_date_is_rejected(tmp_path: Path) -> None:
+    path = tmp_path / "s.json"
+    path.write_text(json.dumps({"ids": [1], "last_digest_date": 20260907}), encoding="utf-8")
+    with pytest.raises(StateError, match="last_digest_date"):
+        SeenStore.load(path, max_stored=100)
 
 
 def test_malformed_json_raises_state_error(tmp_path: Path) -> None:

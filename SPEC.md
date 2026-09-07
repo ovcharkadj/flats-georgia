@@ -87,8 +87,12 @@ without touching callers.
 
 ### Constraints
 
-- Georgia is UTC+4 year-round (no DST). Morning slot 11:00 Tbilisi = 07:00 UTC.
-- GitHub cron fires late by 5–20 min under load — acceptable.
+- Georgia is UTC+4 year-round (no DST).
+- **GitHub's scheduled runs are unreliable** — they are frequently delayed by an
+  hour or more, or skipped entirely (observed: a `0 19 * * *` cron ran at 21:09
+  UTC; a `0 7 * * *` cron did not run at all). So `digest.yml` polls twice an
+  hour, off the hour (`17,47 7-19 * * *`), and the pipeline — not the cron —
+  owns *what* each run does.
 - Public-repo scheduled workflows auto-disable after 60 days with no repo
   activity, and commits made by the built-in `GITHUB_TOKEN` do **not** reset that
   timer. Mitigation: a monthly keepalive job that commits with a user PAT, or the
@@ -100,14 +104,19 @@ without touching callers.
 - Telegram messages are paced `message_pause_seconds` (3 s) apart so a big
   first-run digest does not trip the ~20 messages/minute bulk limit; the sender
   also retries 429/5xx with backoff.
-- `always_send_hours_local = [11]`: a run whose local hour is in this list (or
-  `--always-send`) sends even with nothing new; other runs stay silent when
-  there is nothing.
+- Each run: quiet hours → exit; else fetch, `filter_new`, then send when **any**
+  of: there are new listings; the once-a-day digest is still owed
+  (`store.last_digest_date != today` and local hour ≥ `daily_digest_hour = 11`);
+  `--always-send`; `--force-full`. Any digest sent at/after hour 11 stamps
+  `last_digest_date = today`, so exactly one guaranteed digest goes out per day —
+  on the first run that manages to happen at/after 11:00, which survives GitHub
+  skipping the 11:xx slots.
 - `quiet_hours_local = [0..10]`: a run whose local hour is in this list sends
-  **nothing at all** (not even error notices) and exits early before fetching -
-  `--force-full` and `--dry-run` bypass it. This is the real guard against
-  GitHub delaying an evening cron past midnight (observed: a 19:00 UTC cron ran
-  at 21:09 UTC = 01:09 Tbilisi).
+  **nothing at all** (not even error notices) and exits before fetching —
+  `--force-full` and `--dry-run` bypass it. Guards against GitHub delaying an
+  evening run past midnight.
+- `state/seen_ids.json` carries `ids` (the seen set, capped to `max_stored_ids`)
+  and `last_digest_date` (nullable string; absent in pre-Patch-10 files).
 - Secrets never enter the repo: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` live only
   in GitHub Actions secrets / local `.env`.
 
@@ -117,10 +126,10 @@ without touching callers.
 - Activate (Windows): `.venv\Scripts\Activate.ps1`
 - Install (runtime): `pip install -e .`
 - Install (with dev tooling): `pip install -e ".[dev]"`
-- Dry run (prints digest, sends nothing): `python -m flats_georgia --dry-run`
-- Real run: `python -m flats_georgia`
+- Dry run (prints digest, sends nothing, no state): `python -m flats_georgia --dry-run`
+- Real run (the scheduled behaviour): `python -m flats_georgia`
 - Re-send everything currently in the filter: `python -m flats_georgia --force-full`
-- Always send even with nothing new: `python -m flats_georgia --always-send`
+- Send now even if nothing is new / already sent today: `python -m flats_georgia --always-send`
 - Tests: `pytest` (offline). Live smoke tests: `pytest -m live`
 - Lint: `ruff check src tests` and `ruff format --check src tests`
 - Types: `mypy src`
@@ -255,9 +264,9 @@ Never:
   offline, or live) and sends nothing.
 - A manual `workflow_dispatch` run of `digest.yml` posts a real Telegram message
   and pushes an updated `state/seen_ids.json`.
-- Two runs back-to-back: the second sends nothing new. The 07:00 UTC slot (or a
-  run with `--always-send`) still sends, saying "no new listings" when that is
-  true.
+- Two runs back-to-back: the second sends nothing. Exactly one digest per day
+  goes out at/after 11:00 Tbilisi even if the 11:xx runs were skipped — a later
+  run that day catches up.
 - With the API forced to fail (test injects repeated 500s), the run sends exactly
   one error message to the chat and exits non-zero.
 - Done-means: for one full week the owner receives the morning digest every day

@@ -49,7 +49,7 @@ class BehaviourConfig:
     max_pages_per_run: int
     max_stored_ids: int
     timezone: str
-    always_send_hours_local: tuple[int, ...]
+    daily_digest_hour: int
     quiet_hours_local: tuple[int, ...]
 
 
@@ -155,7 +155,7 @@ def load_settings(
         max_pages_per_run=beh.int_("max_pages_per_run"),
         max_stored_ids=beh.int_("max_stored_ids"),
         timezone=beh.str_("timezone"),
-        always_send_hours_local=beh.int_tuple("always_send_hours_local"),
+        daily_digest_hour=beh.int_("daily_digest_hour"),
         quiet_hours_local=beh.int_tuple("quiet_hours_local"),
     )
 

@@ -38,6 +38,22 @@ cron set and the absence of `0 19 * * *`.
 Boundary: filter unchanged; only schedule and the quiet-hours gate.
 Depends on: Patch 6, Patch 8.
 
+### Patch 10: Self-healing schedule (GitHub keeps skipping the 11:00 run)
+Scope: GitHub dropped the `0 7 * * *` run entirely one morning. Move the "when"
+decision out of cron into the pipeline. State gains `last_digest_date`; a run
+sends when there are new listings OR the daily digest is still owed
+(`last_digest_date != today` and local hour ≥ `daily_digest_hour`); any digest
+sent at/after that hour stamps the date. `always_send_hours_local` →
+`daily_digest_hour`. `digest.yml`: one cron `17,47 7-19 * * *` (poll twice an
+hour, off the hour); manual dispatch passes `--always-send`; state commit does
+`git pull --rebase --autostash` before push.
+Acceptance: a first run of the day at 12:37 sends the digest and stamps the date;
+a later same-day run with nothing new stays silent; `SeenStore` round-trips
+`last_digest_date` and tolerates its absence in old files; `test_workflows`
+asserts the single off-the-hour cron.
+Boundary: filter unchanged; scheduling/decision logic only.
+Depends on: Patch 9.
+
 ## Patches
 
 ### Patch 1: Repository skeleton and configuration

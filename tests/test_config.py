@@ -23,7 +23,7 @@ def test_default_config_loads_the_locked_filter() -> None:
     assert settings.filter.price_to == 500
     assert settings.filter.urbans == (47,)
     assert settings.behaviour.timezone == "Asia/Tbilisi"
-    assert settings.behaviour.always_send_hours_local == (11,)
+    assert settings.behaviour.daily_digest_hour == 11
     assert settings.behaviour.quiet_hours_local == tuple(range(0, 11))
     assert settings.source.website_key == "myhome"
     assert settings.state_path == REPO_ROOT / "state" / "seen_ids.json"
@@ -92,7 +92,7 @@ def test_malformed_config_is_reported(tmp_path: Path) -> None:
             max_pages_per_run = 10
             max_stored_ids = 20000
             timezone = "Asia/Tbilisi"
-            always_send_hours_local = [11]
+            daily_digest_hour = 11
             quiet_hours_local = [0, 1, 2]
 
             [source]

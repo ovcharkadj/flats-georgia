@@ -31,20 +31,21 @@ def test_ci_runs_the_full_check_suite() -> None:
     assert "pytest" in runs
 
 
-def test_digest_schedules_and_morning_branch() -> None:
+def test_digest_schedule_polls_often_and_off_the_hour() -> None:
     data = _load("digest.yml")
     # PyYAML parses the bare `on:` key as boolean True
     triggers = data.get("on") or data.get(True)
-    crons = {entry["cron"] for entry in triggers["schedule"]}
-    assert "0 7 * * *" in crons  # 11:00 Tbilisi guaranteed
-    assert {"0 10 * * *", "0 13 * * *", "0 16 * * *"} <= crons  # 14/17/20 Tbilisi
-    assert "0 19 * * *" not in crons  # no 23:00 Tbilisi run
+    crons = [entry["cron"] for entry in triggers["schedule"]]
+    assert crons == ["17,47 7-19 * * *"]
+    for cron in crons:
+        minute = cron.split()[0]
+        assert minute != "0"  # never top of the hour
 
     run_step = next(
         step for step in data["jobs"]["run"]["steps"] if step.get("name") == "Run digest"
     )
+    assert "workflow_dispatch" in run_step["run"]
     assert "--always-send" in run_step["run"]
-    assert '"0 7 * * *"' in run_step["run"]
     assert data["concurrency"]["group"] == "digest"
 
     commit_step = next(

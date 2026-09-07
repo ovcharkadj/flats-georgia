@@ -18,7 +18,7 @@ message_pause_seconds = 3.0      # gap between Telegram messages (avoids the ~20
 max_pages_per_run = 10
 max_stored_ids = 20000
 timezone = "Asia/Tbilisi"
-always_send_hours_local = [11]  # local hours whose run always sends, even with nothing new
+daily_digest_hour = 11  # the once-a-day digest goes out on the first run at/after this local hour
 quiet_hours_local = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # no messages at all during these local hours
 
 [source]

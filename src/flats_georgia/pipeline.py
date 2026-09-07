@@ -82,10 +82,12 @@ def run(
         log.info("fetched %d listing(s)", len(listings))
         store = SeenStore.load(settings.state_path, max_stored=settings.behaviour.max_stored_ids)
         selected = _by_price_desc(listings if force_full else store.filter_new(listings))
-        must_send = always_send or (moment.hour in settings.behaviour.always_send_hours_local)
 
-        if not selected and not must_send:
-            log.info("nothing new, no guaranteed slot - not sending")
+        today = moment.date().isoformat()
+        past_digest_hour = moment.hour >= settings.behaviour.daily_digest_hour
+        owe_daily_digest = not force_full and past_digest_hour and store.last_digest_date != today
+        if not (selected or owe_daily_digest or always_send or force_full):
+            log.info("nothing new and the daily digest is already done - not sending")
             return EXIT_OK
 
         messages = build_messages(selected, _header(len(selected), moment))
@@ -102,6 +104,8 @@ def run(
         log.info("sent %d message(s) covering %d listing(s)", len(messages), len(selected))
         if not dry_run:
             store.mark_seen(listings)
+            if past_digest_hour:
+                store.mark_digest_sent(today)
             store.save()
         return EXIT_OK
     finally:

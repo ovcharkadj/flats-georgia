@@ -4,16 +4,16 @@ Telegram digest of **new** long-term apartment rentals on
 [MyHome.ge](https://www.myhome.ge/) that match one fixed filter: **Saburtalo,
 Tbilisi; USD 300–500 / month; long-term rent**.
 
-It runs on GitHub Actions on a schedule (Tbilisi time, UTC+4):
+It runs on GitHub Actions, which polls every ~30 minutes during the day. The
+pipeline decides what each run does:
 
-| Run (Tbilisi) | What it sends |
-|---------------|---------------|
-| 11:00 daily | always a digest — the new listings, or "Новых объявлений нет." |
-| 14:00 / 17:00 / 20:00 | a message **only if** new matching listings appeared |
-
-Quiet hours: nothing is sent between 00:00 and 11:00 Tbilisi
-(`quiet_hours_local` in `config.toml`), enforced in code so a cron that GitHub
-delays past midnight still stays silent.
+- **Once a day**, on the first run at or after 11:00 Tbilisi, it sends a digest —
+  the new listings, or "Новых объявлений нет." if there are none. If GitHub skips
+  the 11:xx runs (it often does), a later run that day catches up.
+- **The rest of the day** it sends a message only when new matching listings
+  appeared.
+- **00:00–11:00 Tbilisi** (`quiet_hours_local` in `config.toml`) it sends nothing
+  at all — enforced in code, so a run GitHub delays past midnight stays silent.
 
 Each listing is one block: price (`$` and `₾`), rooms, area, floor, area + nearest
 metro, owner/agency, posting time, and the link on its own line. The digest is
@@ -79,11 +79,12 @@ bot's own state commits do not count. Two options:
 - **Filter** (district, price, deal type): edit `[filter]` in
   [`config.toml`](config.toml) and push. `urbans = [47]` is MyHome's "Saburtalo"
   area; price is in USD.
-- **Schedule**: edit the `cron:` lines in
-  [`.github/workflows/digest.yml`](.github/workflows/digest.yml). They are in
-  **UTC** — Tbilisi is UTC+4 all year, so subtract 4 hours. Keep `0 7 * * *`
-  (11:00 Tbilisi) as the guaranteed daily slot, or update the matching string in
-  the "Run digest" step too.
+- **Schedule / quiet hours**: the daily-digest hour and quiet window are
+  `daily_digest_hour` and `quiet_hours_local` in `config.toml` (Tbilisi local
+  hours). The cron in
+  [`.github/workflows/digest.yml`](.github/workflows/digest.yml) only controls how
+  often GitHub *polls* (UTC; Tbilisi is UTC+4) — widen the `7-19` hour range there
+  if you change the quiet window.
 - **Behaviour knobs** (request pacing, how many ids to remember): `[behaviour]`
   in `config.toml`.
 
