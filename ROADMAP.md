@@ -54,6 +54,18 @@ asserts the single off-the-hour cron.
 Boundary: filter unchanged; scheduling/decision logic only.
 Depends on: Patch 9.
 
+### Patch 11: External trigger (GitHub's cron ran 0 times in a day)
+Scope: GitHub's scheduler did not fire once in ~18h. `digest.yml` gets a
+`workflow_dispatch` boolean input `always_send` (default false); the run step
+keys `--always-send` off `inputs.always_send`, not off the event type, so an
+external cron (cron-job.org) hitting the dispatch API every ~30 min gets normal
+pipeline behaviour. The `schedule:` block stays as a no-cost backup. README gets
+the cron-job.org + fine-grained-PAT runbook.
+Acceptance: `test_workflows` asserts the `always_send` input exists and the run
+step branches on `inputs.always_send`; digest.yml parses.
+Boundary: no code/filter change; workflow trigger + docs only.
+Depends on: Patch 10.
+
 ## Patches
 
 ### Patch 1: Repository skeleton and configuration

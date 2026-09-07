@@ -2,12 +2,18 @@ name: Digest
 
 on:
   workflow_dispatch:
+    inputs:
+      always_send:
+        description: "Send a message even if nothing is new / already sent today"
+        type: boolean
+        default: false
   schedule:
-    # GitHub frequently drops scheduled runs, so poll often and off the hour;
-    # the pipeline decides what to do. 07:00-19:59 UTC = 11:00-23:59 Tbilisi.
-    # Runs before 11:00 Tbilisi (quiet hours) and delayed runs past midnight
-    # send nothing. The once-a-day digest goes out on the first run at/after
-    # 11:00 Tbilisi even if the 11:00 slot itself was skipped.
+    # GitHub's own scheduler proved unreliable for this repo (whole days with 0
+    # runs), so the real trigger is an external cron (cron-job.org) hitting the
+    # workflow_dispatch API every ~30 min - see README. This schedule stays as a
+    # no-cost backup in case GitHub's cron ever starts working again; the
+    # concurrency group + dedup make duplicate triggers harmless.
+    # 07:00-19:59 UTC = 11:00-23:59 Tbilisi.
     - cron: "17,47 7-19 * * *"
 
 concurrency:
@@ -36,7 +42,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ inputs.always_send }}" = "true" ]; then
             python -m flats_georgia --always-send
           else
             python -m flats_georgia

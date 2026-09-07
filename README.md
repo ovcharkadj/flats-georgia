@@ -4,8 +4,11 @@ Telegram digest of **new** long-term apartment rentals on
 [MyHome.ge](https://www.myhome.ge/) that match one fixed filter: **Saburtalo,
 Tbilisi; USD 300–500 / month; long-term rent**.
 
-It runs on GitHub Actions, which polls every ~30 minutes during the day. The
-pipeline decides what each run does:
+The digest logic runs as a GitHub Actions workflow. GitHub's own scheduler turned
+out to be unreliable for this repo (whole days with zero runs), so the workflow
+is triggered by an external cron — [cron-job.org](https://cron-job.org) — every
+~30 minutes (see "External trigger" below). The `schedule:` block in
+`digest.yml` stays as a free backup. The pipeline decides what each run does:
 
 - **Once a day**, on the first run at or after 11:00 Tbilisi, it sends a digest —
   the new listings, or "Новых объявлений нет." if there are none. If GitHub skips
@@ -63,16 +66,37 @@ Repository → **Settings** → **Secrets and variables** → **Actions** →
    everything currently in the filter (can be ~150–200 listings, paced over a few
    minutes); every run after that only sends what is genuinely new.
 
-### 5. (Recommended) keep the schedule alive
+### 5. External trigger (required — GitHub's cron does not run reliably)
 
-GitHub disables scheduled workflows after 60 days without a real commit, and the
-bot's own state commits do not count. Two options:
+1. Create a **fine-grained personal access token**:
+   [github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens)
+   → Generate new token → Resource owner: your account → Repository access: only
+   `flats-georgia` → Permissions → Repository permissions → **Actions:
+   Read and write** (leave everything else). Copy the token (`github_pat_…`).
+2. Test it works, replacing `<PAT>`:
+   ```
+   curl -X POST -H "Authorization: Bearer <PAT>" -H "Accept: application/vnd.github+json" \
+     https://api.github.com/repos/ovcharkadj/flats-georgia/actions/workflows/digest.yml/dispatches \
+     -d '{"ref":"main"}'
+   ```
+   A `204 No Content` (empty) response means success — check the Actions tab for
+   a new run.
+3. Sign up at [cron-job.org](https://cron-job.org) (free). Create a cronjob:
+   - **URL**: `https://api.github.com/repos/ovcharkadj/flats-georgia/actions/workflows/digest.yml/dispatches`
+   - **Request method**: `POST`
+   - **Request body**: `{"ref":"main"}`
+   - **Headers**: `Authorization: Bearer <PAT>` and
+     `Accept: application/vnd.github+json`
+   - **Schedule**: every 30 minutes (or every hour). Quiet hours and the
+     once-a-day rule are handled by the code, so extra triggers are harmless.
+4. Save. That's it — the digest now runs on cron-job.org's schedule.
 
-- Add a third secret **`KEEPALIVE_PAT`** — a
-  [fine-grained personal access token](https://github.com/settings/tokens?type=beta)
-  scoped to this repo with **Contents: read and write**. The monthly
-  **Keepalive** workflow then makes a real commit for you.
-- Or just push any commit to the repo at least once every ~50 days.
+### 6. (Optional) keep the backup schedule alive
+
+GitHub disables the `schedule:` trigger after 60 days without a real commit. Since
+it is only a backup you can ignore this, or add a **`KEEPALIVE_PAT`** secret
+(fine-grained token, **Contents: read and write**) so the monthly **Keepalive**
+workflow makes a commit for you.
 
 ## Changing the filter or schedule
 
@@ -81,10 +105,7 @@ bot's own state commits do not count. Two options:
   area; price is in USD.
 - **Schedule / quiet hours**: the daily-digest hour and quiet window are
   `daily_digest_hour` and `quiet_hours_local` in `config.toml` (Tbilisi local
-  hours). The cron in
-  [`.github/workflows/digest.yml`](.github/workflows/digest.yml) only controls how
-  often GitHub *polls* (UTC; Tbilisi is UTC+4) — widen the `7-19` hour range there
-  if you change the quiet window.
+  hours). How often the digest *runs* is set on cron-job.org, not in the repo.
 - **Behaviour knobs** (request pacing, how many ids to remember): `[behaviour]`
   in `config.toml`.
 

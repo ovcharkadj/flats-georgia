@@ -88,11 +88,12 @@ without touching callers.
 ### Constraints
 
 - Georgia is UTC+4 year-round (no DST).
-- **GitHub's scheduled runs are unreliable** — they are frequently delayed by an
-  hour or more, or skipped entirely (observed: a `0 19 * * *` cron ran at 21:09
-  UTC; a `0 7 * * *` cron did not run at all). So `digest.yml` polls twice an
-  hour, off the hour (`17,47 7-19 * * *`), and the pipeline — not the cron —
-  owns *what* each run does.
+- **GitHub's scheduled runs do not work reliably for this repo** — observed:
+  delayed hours, and whole days with zero runs. The real trigger is an external
+  cron (cron-job.org) calling the `workflow_dispatch` REST API every ~30 min with
+  a fine-grained PAT (Actions: write). `digest.yml` keeps a `schedule:` block as
+  a free backup. The pipeline — not the trigger — owns *what* each run does, so
+  trigger cadence only affects latency, never correctness.
 - Public-repo scheduled workflows auto-disable after 60 days with no repo
   activity, and commits made by the built-in `GITHUB_TOKEN` do **not** reset that
   timer. Mitigation: a monthly keepalive job that commits with a user PAT, or the

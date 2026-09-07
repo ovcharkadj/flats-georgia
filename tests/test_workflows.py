@@ -41,10 +41,13 @@ def test_digest_schedule_polls_often_and_off_the_hour() -> None:
         minute = cron.split()[0]
         assert minute != "0"  # never top of the hour
 
+    triggers_wd = (data.get("on") or data.get(True))["workflow_dispatch"]
+    assert "always_send" in triggers_wd["inputs"]
+
     run_step = next(
         step for step in data["jobs"]["run"]["steps"] if step.get("name") == "Run digest"
     )
-    assert "workflow_dispatch" in run_step["run"]
+    assert "inputs.always_send" in run_step["run"]
     assert "--always-send" in run_step["run"]
     assert data["concurrency"]["group"] == "digest"
 
